@@ -7,6 +7,7 @@
 //
 
 #import "CameraViewController.h"
+#import <MobileCoreServices/UTCoreTypes.h>
 
 @interface CameraViewController ()
 
@@ -21,22 +22,23 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    //small bug: Camera keeps opening after taking a picture when code is placed in (void)viewWillAppear, unless tap the cancel button.
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = NO;
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }else{
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    if (self.image == nil && [self.videoFilePath length] == 0){
+        //there is a missing if statement in viewWillAppear that causes the camera/photo chooser to reappear before you can choose any recipients. 
+        self.imagePicker = [[UIImagePickerController alloc] init];
+        self.imagePicker.delegate = self;
+        self.imagePicker.allowsEditing = NO;
+        self.imagePicker.videoMaximumDuration = 10;
+        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }else{
+            self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+        
+        self.imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:self.imagePicker.sourceType];
+        
+        [self presentViewController:self.imagePicker animated:NO completion:nil];
     }
-    
-    self.imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:self.imagePicker.sourceType];
-    
-    [self presentViewController:self.imagePicker animated:NO completion:nil];
-    
 }
 
 #pragma mark - Table view data source
@@ -62,4 +64,35 @@
     [self.tabBarController setSelectedIndex:0];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        // A photo was taken or selected!
+        self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        
+        if (self.imagePicker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            // save the image
+            UIImageWriteToSavedPhotosAlbum(self.image, nil, nil, nil);
+        }
+        
+    }
+    else{
+        // A video was taken or selected!
+        NSURL *imagePickerURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        self.videoFilePath = [imagePickerURL path];
+        
+        if (self.imagePicker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            // save the video
+            if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(self.videoFilePath)) {
+                //There are often little checks like this that Apple recommends we perform to make sure our app will work on all devices.
+                UISaveVideoAtPathToSavedPhotosAlbum(self.videoFilePath, nil, nil, nil);
+            }
+            
+        }
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
