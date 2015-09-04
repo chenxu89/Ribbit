@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1389" y="601"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="lYH-eZ-7vp">
             <objects>
-                <tableViewController id="Riu-Bx-z1y" sceneMemberID="viewController">
+                <tableViewController id="Riu-Bx-z1y" customClass="CameraViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7Yg-dh-6yE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

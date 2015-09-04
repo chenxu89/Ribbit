@@ -38,6 +38,7 @@
 		2DD8B2941B9922D00052E7CE /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8B2931B9922D00052E7CE /* SignupViewController.m */; };
 		2DD8B2971B994BFF0052E7CE /* EditFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8B2961B994BFF0052E7CE /* EditFriendsViewController.m */; };
 		2DD8B29A1B9978E90052E7CE /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8B2991B9978E90052E7CE /* FriendsViewController.m */; };
+		2DD8B29D1B99C4200052E7CE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8B29C1B99C4200052E7CE /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		2DD8B2961B994BFF0052E7CE /* EditFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFriendsViewController.m; sourceTree = "<group>"; };
 		2DD8B2981B9978E90052E7CE /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
 		2DD8B2991B9978E90052E7CE /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		2DD8B29B1B99C4200052E7CE /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		2DD8B29C1B99C4200052E7CE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				2DD8B2961B994BFF0052E7CE /* EditFriendsViewController.m */,
 				2DD8B2981B9978E90052E7CE /* FriendsViewController.h */,
 				2DD8B2991B9978E90052E7CE /* FriendsViewController.m */,
+				2DD8B29B1B99C4200052E7CE /* CameraViewController.h */,
+				2DD8B29C1B99C4200052E7CE /* CameraViewController.m */,
 				2D463ABC1B97E35F000BC438 /* Images.xcassets */,
 				2D463ABE1B97E35F000BC438 /* LaunchScreen.xib */,
 				2D463AAF1B97E35F000BC438 /* Supporting Files */,
@@ -336,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DD8B2911B9922BF0052E7CE /* LoginViewController.m in Sources */,
+				2DD8B29D1B99C4200052E7CE /* CameraViewController.m in Sources */,
 				2D463AB51B97E35F000BC438 /* AppDelegate.m in Sources */,
 				2DD8B29A1B9978E90052E7CE /* FriendsViewController.m in Sources */,
 				2D463AB21B97E35F000BC438 /* main.m in Sources */,
