@@ -75,18 +75,43 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
     
     PFRelation *friendsRelation = [self.currentUser relationForKey:@"friendsRelation"];
     PFUser *user = [self.allUsers objectAtIndex:indexPath.row];
-    //本地添加
-    [friendsRelation addObject:user];
-    //云端保存，用block为了异步保存
+    
+    if ([self isFriend:user]) {
+    //if user tapped is a friend, remove them
+        //1.Remove the checkmark
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        //2.Remove from the array of friends(本地)
+        //不能直接用[self.friends removeObject:user];因为user和friend在云端保存中可能不完全相同，这里我也搞的不是太清楚
+        for (PFUser *friend in self.friends) {
+            if ([friend.objectId isEqualToString:user.objectId]) {
+                [self.friends removeObject:friend];
+                break;
+            }
+        }
+        
+        //3.Remove from the backend（云端）
+        [friendsRelation removeObject:user];
+    
+    }else{
+    //else if user tapped is not a friend, add them
+        //1.Add the checkmark
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        //2.Add to the array of friends(本地)
+        [self.friends addObject:user];
+        //3.Add to the backend（云端）
+        [friendsRelation addObject:user];
+    }
+    
+    //云端更新，用block为了异步
     [self.currentUser saveInBackgroundWithBlock:^(BOOL succeded, NSError *error){
         if (error) {
             NSLog(@"Error %@ %@", error, [error userInfo]);
         }
     }];
+
 }
 
 #pragma mark - Helper methods
