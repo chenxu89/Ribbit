@@ -166,7 +166,6 @@
     }
     else{
         [self uploadMessage];
-        [self reset];
         [self.tabBarController setSelectedIndex:0];
     }
 }
@@ -175,12 +174,54 @@
 
 - (void)uploadMessage{
     //Check if image or video
-    if (self.image != nil) {
-        UIImage *newImage = [self resizeImage:self.image toWidth:320.0f andHeight:480.0f];
-    }
     //If image, shrink it
     //Upload the file itself
     //Upload the message details
+    
+    NSData *fileData;
+    NSString *fileName;
+    NSString *fileType;
+    
+    if (self.image != nil) {
+        UIImage *newImage = [self resizeImage:self.image toWidth:320.0f andHeight:480.0f];
+        fileData = UIImagePNGRepresentation(newImage);
+        fileName = @"image.png";
+        fileType = @"image";
+    }
+    else{
+        fileData = [NSData dataWithContentsOfFile:self.videoFilePath];
+        fileName = @"video.mov";
+        fileType = @"video";
+    }
+    
+    PFFile *file = [PFFile fileWithName:fileName data:fileData];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+//        //test error occur, remember to delete!
+//        error = [[NSError alloc] init];
+        
+        if (error) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An error occured!" message:@"Please try send your message again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+        else{
+            PFObject *message = [PFObject objectWithClassName:@"Messages"];
+            [message setObject:file forKey:@"file"];
+            [message setObject:fileType forKey:@"fileType"];
+            [message setObject:self.recipients forKey:@"recipientIds"];
+            [message setObject:[[PFUser currentUser] objectId] forKey:@"senderId"];
+            [message setObject:[[PFUser currentUser] username] forKey:@"senderName"];
+            [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                if (error) {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An error occured!" message:@"Please try send your message again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alertView show];
+                }
+                else{
+                    // Everything was successful!
+                    [self reset];
+                }
+            }];
+        }
+    }];
 }
 
 - (void)reset {
