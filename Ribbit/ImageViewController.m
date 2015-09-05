@@ -28,5 +28,23 @@
     self.navigationItem.title = senderName;
 }
 
+//阅后即焚
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    //加入if else只是一种避免出现这种方法缺失错误的预防办法，在这里可以不用加
+    if ([self respondsToSelector:@selector(timeout)]) {
+        [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(timeout) userInfo:nil repeats:NO];
+    }
+    else{
+        NSLog(@"Error: seletor missing!");
+    }
+}
+
+#pragma mark - Helper methods
+
+- (void)timeout{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
