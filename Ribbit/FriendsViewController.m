@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelation"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -25,7 +26,7 @@
     
     //把下面这部分代码从viewDidLoad移至viewWillAppear是为了每次进入FriendsViewController页面都能刷新friendsRelation，而不只是第一次加载的时候刷新
     //从parse获取friends数据，将其显示在friends页面
-    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelation"];
+    
     PFQuery *query = [self.friendsRelation query];
     [query orderByAscending:@"username"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){

@@ -171,7 +171,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HNE-Wm-gB2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="HNE-Wm-gB2">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HNE-Wm-gB2" id="4WQ-3Y-V6f">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -183,7 +183,14 @@
                             <outlet property="delegate" destination="Riu-Bx-z1y" id="o1t-zH-mjY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recipients" id="gOY-fK-CVi"/>
+                    <navigationItem key="navigationItem" title="Recipients" id="gOY-fK-CVi">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Cyv-Ll-ZIK">
+                            <connections>
+                                <action selector="cancel:" destination="Riu-Bx-z1y" id="cfN-4B-YQL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="b3q-zf-f6l"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GdZ-sQ-NU8" userLabel="First Responder" sceneMemberID="firstResponder"/>

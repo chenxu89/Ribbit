@@ -17,11 +17,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelation"];
+    self.recipients = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    //从parse获取friends数据，将其显示在friends页面
+    PFQuery *query = [self.friendsRelation query];
+    [query orderByAscending:@"username"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        if (error) {
+            NSLog(@"Error %@ %@", error, [error userInfo]);
+        }else{
+            self.friends = objects;
+            [self.tableView reloadData];
+        }
+    }];
+    
+    //access camera
     if (self.image == nil && [self.videoFilePath length] == 0){
         //there is a missing if statement in viewWillAppear that causes the camera/photo chooser to reappear before you can choose any recipients. 
         self.imagePicker = [[UIImagePickerController alloc] init];
@@ -44,15 +59,53 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+
+    return [self.friends count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    PFUser *user = [self.friends objectAtIndex:indexPath.row];
+    cell.textLabel.text = user.username;
+    
+    //we just need to check our array of recipients to set the check marks.If the user for the current row is in the array, we want to show the check mark.Otherwise we want to leave it blank.
+    if ([self.recipients containsObject:user.objectId]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    return cell;
+}
+
+#pragma mark - Table view delegate 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    PFUser *user = [self.friends objectAtIndex:indexPath.row];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.recipients addObject:user.objectId];
+    }
+    else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.recipients removeObject:user.objectId];
+    }
+    
+    //NSLog(@"%@", self.recipients);//test
 }
 
 #pragma mark - Image Picker Controller Delegate
@@ -94,5 +147,16 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)cancel:(id)sender {
+    
+    self.image = nil;
+    self.videoFilePath = nil;
+    [self.recipients removeAllObjects];
+    
+    [self.tabBarController setSelectedIndex:0];
 }
 @end
