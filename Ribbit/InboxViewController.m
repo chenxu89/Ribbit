@@ -106,6 +106,22 @@
         [self.view addSubview:self.moviePlayer.view];
         [self.moviePlayer setFullscreen:YES animated:YES];//全屏播放，必须在addSubview之后
     }
+    
+    //Delete it!
+    NSMutableArray *recipientIds = [NSMutableArray arrayWithArray:[self.selectedMessage objectForKey:@"recipientIds"]];
+    //Let's log these recipients because we're going to watch them get deleted.
+    NSLog(@"Recipients: %@", recipientIds);
+    
+    if ([recipientIds count] == 1) {
+        //Last recipient - delete!
+        [self.selectedMessage deleteInBackground];
+    }
+    else{
+        // Remove the recipient and save it
+        [recipientIds removeObject:[[PFUser currentUser] objectId]];
+        [self.selectedMessage setObject:recipientIds forKey:@"recipientIds"];
+        [self.selectedMessage saveInBackground];
+    }
 }
 
 - (IBAction)logout:(id)sender {
