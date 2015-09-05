@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //And let's first allocate that movie player in our viewDidLoad method.That way, we can reuse the same one for all the videos in the inbox.
+    self.moviePlayer = [[MPMoviePlayerController alloc] init];
+    
     self.navigationItem.title = @"Ribbit";
     
     PFUser *currentUser = [PFUser currentUser];
@@ -30,8 +33,8 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Messages"];
     [query whereKey:@"recipientIds" equalTo:[[PFUser currentUser] objectId]];
@@ -90,7 +93,18 @@
         [self performSegueWithIdentifier:@"showImage" sender:self];
     }
     else{
+        //File type is video
+        PFFile *videoFile = [self.selectedMessage objectForKey:@"file"];
+        NSURL *fileUrl = [NSURL URLWithString:videoFile.url];
+        self.moviePlayer.contentURL = fileUrl;
+        [self.moviePlayer prepareToPlay];
         
+        //Right now it comes up with a blank screen before the video starts playing.We can display a thumbnail from the video instead
+        [self.moviePlayer requestThumbnailImagesAtTimes:@[@0] timeOption:MPMovieTimeOptionNearestKeyFrame];
+        
+        // moviePlayer is a view, Add it to the view controller so we can see it
+        [self.view addSubview:self.moviePlayer.view];
+        [self.moviePlayer setFullscreen:YES animated:YES];//全屏播放，必须在addSubview之后
     }
 }
 
