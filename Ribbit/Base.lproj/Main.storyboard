@@ -189,7 +189,11 @@
                                 <action selector="cancel:" destination="Riu-Bx-z1y" id="cfN-4B-YQL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="b3q-zf-f6l"/>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="b3q-zf-f6l">
+                            <connections>
+                                <action selector="send:" destination="Riu-Bx-z1y" id="qZE-in-S1g"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
