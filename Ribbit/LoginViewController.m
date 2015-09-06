@@ -19,6 +19,12 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //Now once we hide the Navigation Bar within a Navigation Controller,it stays hidden on subsequent View Controllers until we manually show it again. So if we hide it here in LoginViewController, it will also be hidden in the SignupViewController.
+    [self.navigationController.navigationBar setHidden:YES];
+}
+
 - (IBAction)login:(id)sender {
     //去掉用户名等包含的所有空格
     NSString *username = [self.usernameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
