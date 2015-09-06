@@ -14,12 +14,6 @@
 		2D463ABD1B97E35F000BC438 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D463ABC1B97E35F000BC438 /* Images.xcassets */; };
 		2D463AC01B97E35F000BC438 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D463ABE1B97E35F000BC438 /* LaunchScreen.xib */; };
 		2D463ACC1B97E35F000BC438 /* RibbitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D463ACB1B97E35F000BC438 /* RibbitTests.m */; };
-		2D463ADB1B97ED07000BC438 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D463AD51B97ED07000BC438 /* camera.png */; };
-		2D463ADC1B97ED07000BC438 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D463AD61B97ED07000BC438 /* camera@2x.png */; };
-		2D463ADD1B97ED07000BC438 /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D463AD71B97ED07000BC438 /* friends.png */; };
-		2D463ADE1B97ED07000BC438 /* friends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D463AD81B97ED07000BC438 /* friends@2x.png */; };
-		2D463ADF1B97ED07000BC438 /* inbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D463AD91B97ED07000BC438 /* inbox.png */; };
-		2D463AE01B97ED07000BC438 /* inbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D463ADA1B97ED07000BC438 /* inbox@2x.png */; };
 		2D463AE41B982FA6000BC438 /* InboxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D463AE31B982FA6000BC438 /* InboxViewController.m */; };
 		2D463AE81B9850AD000BC438 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D463AE61B9850AD000BC438 /* Bolts.framework */; };
 		2D463AE91B9850AD000BC438 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D463AE71B9850AD000BC438 /* Parse.framework */; };
@@ -35,10 +29,6 @@
 		2D463AFD1B985218000BC438 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D463AF41B985218000BC438 /* SystemConfiguration.framework */; };
 		2D463AFF1B985275000BC438 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D463AFE1B985275000BC438 /* libz.dylib */; };
 		2D463B011B9854DA000BC438 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D463B001B9854DA000BC438 /* libsqlite3.0.dylib */; };
-		2DD65E2C1B9ADF7D0084E6A4 /* icon_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD65E281B9ADF7D0084E6A4 /* icon_image.png */; };
-		2DD65E2D1B9ADF7D0084E6A4 /* icon_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD65E291B9ADF7D0084E6A4 /* icon_image@2x.png */; };
-		2DD65E2E1B9ADF7D0084E6A4 /* icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD65E2A1B9ADF7D0084E6A4 /* icon_video.png */; };
-		2DD65E2F1B9ADF7D0084E6A4 /* icon_video@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DD65E2B1B9ADF7D0084E6A4 /* icon_video@2x.png */; };
 		2DD65E321B9AE3360084E6A4 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD65E311B9AE3360084E6A4 /* ImageViewController.m */; };
 		2DD8B2911B9922BF0052E7CE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8B2901B9922BF0052E7CE /* LoginViewController.m */; };
 		2DD8B2941B9922D00052E7CE /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8B2931B9922D00052E7CE /* SignupViewController.m */; };
@@ -70,12 +60,6 @@
 		2D463AC51B97E35F000BC438 /* RibbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RibbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D463ACA1B97E35F000BC438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D463ACB1B97E35F000BC438 /* RibbitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RibbitTests.m; sourceTree = "<group>"; };
-		2D463AD51B97ED07000BC438 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = tab_bar_icons/camera.png; sourceTree = "<group>"; };
-		2D463AD61B97ED07000BC438 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera@2x.png"; path = "tab_bar_icons/camera@2x.png"; sourceTree = "<group>"; };
-		2D463AD71B97ED07000BC438 /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = friends.png; path = tab_bar_icons/friends.png; sourceTree = "<group>"; };
-		2D463AD81B97ED07000BC438 /* friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friends@2x.png"; path = "tab_bar_icons/friends@2x.png"; sourceTree = "<group>"; };
-		2D463AD91B97ED07000BC438 /* inbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inbox.png; path = tab_bar_icons/inbox.png; sourceTree = "<group>"; };
-		2D463ADA1B97ED07000BC438 /* inbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox@2x.png"; path = "tab_bar_icons/inbox@2x.png"; sourceTree = "<group>"; };
 		2D463AE21B982FA6000BC438 /* InboxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxViewController.h; sourceTree = "<group>"; };
 		2D463AE31B982FA6000BC438 /* InboxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxViewController.m; sourceTree = "<group>"; };
 		2D463AE61B9850AD000BC438 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -92,10 +76,6 @@
 		2D463AF41B985218000BC438 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D463AFE1B985275000BC438 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2D463B001B9854DA000BC438 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		2DD65E281B9ADF7D0084E6A4 /* icon_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_image.png; sourceTree = "<group>"; };
-		2DD65E291B9ADF7D0084E6A4 /* icon_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_image@2x.png"; sourceTree = "<group>"; };
-		2DD65E2A1B9ADF7D0084E6A4 /* icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_video.png; sourceTree = "<group>"; };
-		2DD65E2B1B9ADF7D0084E6A4 /* icon_video@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_video@2x.png"; sourceTree = "<group>"; };
 		2DD65E301B9AE3360084E6A4 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		2DD65E311B9AE3360084E6A4 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		2DD8B28F1B9922BF0052E7CE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -219,16 +199,6 @@
 		2D463AE11B97ED0E000BC438 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2DD65E281B9ADF7D0084E6A4 /* icon_image.png */,
-				2DD65E291B9ADF7D0084E6A4 /* icon_image@2x.png */,
-				2DD65E2A1B9ADF7D0084E6A4 /* icon_video.png */,
-				2DD65E2B1B9ADF7D0084E6A4 /* icon_video@2x.png */,
-				2D463AD51B97ED07000BC438 /* camera.png */,
-				2D463AD61B97ED07000BC438 /* camera@2x.png */,
-				2D463AD71B97ED07000BC438 /* friends.png */,
-				2D463AD81B97ED07000BC438 /* friends@2x.png */,
-				2D463AD91B97ED07000BC438 /* inbox.png */,
-				2D463ADA1B97ED07000BC438 /* inbox@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -336,19 +306,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DD65E2E1B9ADF7D0084E6A4 /* icon_video.png in Resources */,
 				2D463ABB1B97E35F000BC438 /* Main.storyboard in Resources */,
-				2D463ADD1B97ED07000BC438 /* friends.png in Resources */,
-				2DD65E2C1B9ADF7D0084E6A4 /* icon_image.png in Resources */,
-				2D463ADE1B97ED07000BC438 /* friends@2x.png in Resources */,
-				2D463ADC1B97ED07000BC438 /* camera@2x.png in Resources */,
-				2D463ADF1B97ED07000BC438 /* inbox.png in Resources */,
 				2D463AC01B97E35F000BC438 /* LaunchScreen.xib in Resources */,
-				2DD65E2D1B9ADF7D0084E6A4 /* icon_image@2x.png in Resources */,
-				2D463ADB1B97ED07000BC438 /* camera.png in Resources */,
 				2D463ABD1B97E35F000BC438 /* Images.xcassets in Resources */,
-				2D463AE01B97ED07000BC438 /* inbox@2x.png in Resources */,
-				2DD65E2F1B9ADF7D0084E6A4 /* icon_video@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -517,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

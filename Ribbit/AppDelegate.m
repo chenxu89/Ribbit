@@ -17,10 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //let's force our launch image to show just a little bit longer using a little sleep timer in the App Delegate. But this splash screen will only show when the app is first started.
+    [NSThread sleepForTimeInterval:1.5];
+    
+    
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
-    
     // Initialize Parse.
     [Parse setApplicationId:@"aObJLMPkAABDMQRFMQLGaIjXI7wHgeqGnXoai7ji" clientKey:@"YXjutyXu58zMg7RuCAkpx5Vjb0ITywYX8Rri8He3"];
     

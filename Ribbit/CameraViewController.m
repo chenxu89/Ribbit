@@ -17,12 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelation"];
     self.recipients = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    self.friendsRelation = [[PFUser currentUser] relationForKey:@"friendsRelation"];
     
     //从parse获取friends数据，将其显示在friends页面
     PFQuery *query = [self.friendsRelation query];
